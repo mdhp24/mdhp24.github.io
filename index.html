@@ -67,11 +67,175 @@
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
 
-      <img src="assets/img/banner2.jpg" alt="" data-aos="fade-in">
+      <img class="hero-background">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <h2>Mochammad Dicky Hanun Prasetyo<br></h2>
-        <p>Fokus pada Web <span class="typed" data-typed-items="FullStack Developer, "></span></p>
+        <div class="particles">
+          <!-- Particles -->
+          <div class="particle" style="top: 10%; left: 20%;"></div>
+          <div class="particle" style="top: 50%; left: 70%;"></div>
+          <div class="particle" style="top: 80%; left: 40%;"></div>
+          <div class="particle" style="top: 30%; left: 90%;"></div>
+          <div class="particle" style="top: 60%; left: 10%;"></div>
+        </div>
+        <div class="animated-text">
+          <h2 id="animated-name"></h2>
+          <script>
+            const name = "Mochammad Dicky Hanun Prasetyo";
+            const container = document.getElementById("animated-name");
+
+            name.split("").forEach((char, index) => {
+              const span = document.createElement("span");
+              span.classList.add("letter");
+              span.style.animationDelay = `${index * 0.1}s`;
+              span.textContent = char === " " ? "\u00A0" : char; // Spasi non-breaking
+              container.appendChild(span);
+            });
+
+          </script>
+          <style>
+            .hero-background {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background-color: darkblue;
+              z-index: -1;
+              object-fit: cover;
+              filter: brightness(0.1);
+            }
+
+            h2 {
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+              font-family: 'Poppins', sans-serif;
+              color: white;
+              text-align: center;
+            }
+
+            .letter {
+              display: inline-block;
+              opacity: 0;
+              animation: fadeLetter 7s ease-in-out infinite;
+            }
+
+            @keyframes fadeLetter {
+              0% {
+                opacity: 0;
+                transform: scale(0.8);
+              }
+
+              50% {
+                opacity: 1;
+                transform: scale(1.1);
+              }
+
+              100% {
+                opacity: 0;
+                transform: scale(1);
+              }
+            }
+
+            /* Hero Section */
+            .hero {
+              position: relative;
+              height: 100vh;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              text-align: center;
+            }
+
+            /* Animated Text */
+            .animated-text h1 {
+              font-size: 3rem;
+              font-weight: 600;
+              text-transform: uppercase;
+              letter-spacing: 4px;
+              animation: fadeIn 2s ease-in-out;
+            }
+
+            .animated-text .typed-text {
+              font-size: 1.2rem;
+              font-weight: 400;
+              color: #ffaf7b;
+              margin-top: 1rem;
+            }
+
+            @keyframes fadeIn {
+              0% {
+                opacity: 0;
+                transform: translateY(20px);
+              }
+
+              100% {
+                opacity: 1;
+                transform: translateY(0);
+              }
+            }
+
+            /* Social Links */
+            .social-links {
+              margin-top: 2rem;
+              display: flex;
+              justify-content: center;
+              gap: 15px;
+            }
+
+            .social-icon {
+              font-size: 1.5rem;
+              color: #ffffff;
+              transition: all 0.3s ease-in-out;
+              text-decoration: none;
+            }
+
+            .social-icon:hover {
+              color: #ffaf7b;
+              transform: scale(1.2);
+            }
+
+            /* Particles Animation */
+            .particles {
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              pointer-events: none;
+              overflow: hidden;
+            }
+
+            .particle {
+              position: absolute;
+              width: 10px;
+              height: 10px;
+              background: rgba(255, 255, 255, 0.8);
+              border-radius: 50%;
+              animation: moveParticle 6s infinite ease-in-out;
+              opacity: 0.7;
+            }
+
+            @keyframes moveParticle {
+              0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0.8;
+              }
+
+              50% {
+                transform: translate(100px, -200px) scale(1.5);
+                opacity: 0.4;
+              }
+
+              100% {
+                transform: translate(-50px, 300px) scale(0.5);
+                opacity: 0;
+              }
+            }
+          </style>
+        </div>
+        <p>Fokus pada <span class="typed" data-typed-items="Fullstack Developer"></span></p>
+        <i></i>
         <div class="social-links">
           <a href="https://github.com/M-Dicky-Hanun-P"><i class="bi bi-github"></i></a>
           <a href="https://linkedin.com/in/mochammad-dicky-hanun-prasetyo-a4575a2b7"><i class="bi bi-linkedin"></i></a>
@@ -87,7 +251,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>About me</h2>
+        <h1>About me</h1>
+        <hr>
       </div>
       <!-- End Section Title -->
 
@@ -163,7 +328,8 @@
     <section id="CV" class="cv section">
 
       <div class="cv-section mt-5">
-        <h4 class="text-center">My CV</h4>
+        <h1 class="text-center">My CV</h1>
+        <hr>
         <div class="cv-preview text-center">
           <iframe src="assets/pdf/CV_Mochammad Dicky Hanun Prasetyo.pdf" width="65%" height="2330px"
             style="border: none;"></iframe>
@@ -176,8 +342,9 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Portfolio dan Project</h2>
+        <h1>Portofolio dan Project</h1>
         <p>Saya memiliki projek yang sudah dibuat atau masih dalam progres.</p>
+        <hr>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -336,8 +503,9 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
+        <h1>Contact</h1>
         <p>Informasi lebih lanjut, bisa menghubungi melalui di bawah ini</p>
+        <hr>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
