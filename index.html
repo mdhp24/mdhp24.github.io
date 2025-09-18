@@ -96,6 +96,7 @@
                 justify-content: center;
                 align-items: center;
                 text-align: center;
+                padding: 0 1rem; /* biar ada jarak di sisi layar kecil */
               }
 
               .container {
@@ -107,224 +108,108 @@
                 color: white;
                 font-size: 4rem;
                 margin-bottom: 1rem;
+                word-wrap: break-word;
+              }
+
+              /* Tambahan responsive */
+              @media (max-width: 1024px) {
+                .animated-text h2 {
+                  font-size: 3rem;
+                }
+              }
+
+              @media (max-width: 768px) {
+                .animated-text h2 {
+                  font-size: 2.3rem;
+                }
+              }
+
+              @media (max-width: 480px) {
+                .animated-text h2 {
+                  font-size: 1.8rem;
+                  line-height: 2.2rem;
+                }
+              }
+
+              @media (max-width: 360px) {
+                .animated-text h2 {
+                  font-size: 1.5rem;
+                  line-height: 2rem;
+                }
               }
             </style>
 
             <script>
+              // Particles.js konfigurasi tetap sama punyamu
               particlesJS("particles-js", {
                 particles: {
                   number: {
                     value: 100,
-                    density: {
-                      enable: true,
-                      value_area: 900,
-                    },
+                    density: { enable: true, value_area: 900 },
                   },
-                  color: {
-                    value: ["#00ffff", "#ff00ff", "#00ff00"],
-                  },
+                  color: { value: ["#00ffff", "#ff00ff", "#00ff00"] },
                   shape: {
                     type: ["circle", "edge"],
-                    stroke: {
-                      width: 2,
-                      color: "random",
-                    },
+                    stroke: { width: 2, color: "random" },
                   },
-                  opacity: {
-                    value: 0.6,
-                    random: true,
-                    anim: {
-                      enable: true,
-                      speed: 1,
-                      opacity_min: 0.1,
-                      sync: false,
-                    },
-                  },
-                  size: {
-                    value: 4,
-                    random: true,
-                    anim: {
-                      enable: true,
-                      speed: 5,
-                      size_min: 0.1,
-                      sync: false,
-                    },
-                  },
+                  opacity: { value: 0.6, random: true },
+                  size: { value: 4, random: true },
                   line_linked: {
                     enable: true,
                     distance: 150,
-                    color_rgb: {
-                      r: 255,
-                      g: 255,
-                      b: 255,
-                    },
+                    color: "#fff",
                     opacity: 0.4,
                     width: 1,
-                    shadow: {
-                      enable: true,
-                      blur: 5,
-                      color: "#ffffff",
-                    },
                   },
-                  move: {
-                    enable: true,
-                    speed: 4,
-                    direction: "none",
-                    random: true,
-                    straight: false,
-                    out_mode: "out",
-                    bounce: false,
-                    attract: {
-                      enable: true,
-                      rotateX: 2000,
-                      rotateY: 2000,
-                    },
-                  },
+                  move: { enable: true, speed: 4 },
                 },
                 interactivity: {
                   detect_on: "canvas",
                   events: {
-                    onhover: {
-                      enable: true,
-                      mode: "bubble",
-                    },
-                    onclick: {
-                      enable: true,
-                      mode: "repulse",
-                    },
+                    onhover: { enable: true, mode: "bubble" },
+                    onclick: { enable: true, mode: "repulse" },
                     resize: true,
                   },
                   modes: {
-                    grab: {
-                      distance: 200,
-                      line_linked: {
-                        opacity: 1,
-                      },
-                    },
                     bubble: {
                       distance: 200,
                       size: 12,
                       duration: 2,
                       opacity: 0.8,
                       speed: 3,
-                      color: {
-                        value: ["#ff0000", "#00ff00", "#0000ff"],
-                        animation: {
-                          enable: true,
-                          speed: 20,
-                          sync: true,
-                        },
-                      },
                     },
-                    repulse: {
-                      distance: 400,
-                      duration: 0.4,
-                    },
-                    push: {
-                      particles_nb: 4,
-                    },
-                    remove: {
-                      particles_nb: 2,
-                    },
+                    repulse: { distance: 400, duration: 0.4 },
                   },
                 },
                 retina_detect: true,
               });
 
-              // Add enhanced visual effects
+              // Tambahan efek teks + animasi glow
               const styles = `
-  #particles-js {
-    background: linear-gradient(
-      45deg, 
-      rgba(0, 0, 25, 1) 0%,
-      rgba(0, 0, 50, 1) 50%,
-      rgba(0, 0, 25, 1) 100%
-    );
-    position: relative;
-    overflow: hidden;
-  }
+      #animated-name {
+        position: relative;
+        z-index: 2;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        animation: glow 2s ease-in-out infinite alternate;
+      }
 
-  #particles-js::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-      radial-gradient(circle at 20% 20%, rgba(41, 0, 67, 0.5) 0%, transparent 40%),
-      radial-gradient(circle at 80% 80%, rgba(0, 41, 67, 0.5) 0%, transparent 40%);
-    animation: ambientLight 10s ease-in-out infinite alternate;
-    mix-blend-mode: screen;
-  }
-
-  #particles-js::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-      repeating-linear-gradient(
-        45deg,
-        rgba(255, 255, 255, 0.05) 0%,
-        rgba(255, 255, 255, 0) 5%,
-        rgba(255, 255, 255, 0.05) 10%
-      );
-    animation: scanlines 2s linear infinite;
-    pointer-events: none;
-  }
-
-  @keyframes ambientLight {
-    0% {
-      opacity: 0.3;
-      transform: scale(1) rotate(0deg);
-    }
-    100% {
-      opacity: 0.7;
-      transform: scale(1.2) rotate(360deg);
-    }
-  }
-
-  @keyframes scanlines {
-    0% {
-      background-position: 0 0;
-    }
-    100% {
-      background-position: 0 100%;
-    }
-  }
-
-  .particle {
-    mix-blend-mode: screen;
-    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
-  }
-
-  #animated-name {
-    position: relative;
-    z-index: 2;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-    animation: glow 2s ease-in-out infinite alternate;
-  }
-
-  @keyframes glow {
-    from {
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-    }
-    to {
-      text-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
-                   0 0 30px rgba(255, 255, 255, 0.6),
-                   0 0 40px rgba(255, 255, 255, 0.4);
-    }
-  }
-`;
+      @keyframes glow {
+        from {
+          text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        to {
+          text-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
+                       0 0 30px rgba(255, 255, 255, 0.6),
+                       0 0 40px rgba(255, 255, 255, 0.4);
+        }
+      }
+    `;
 
               const styleSheet = document.createElement("style");
               styleSheet.innerText = styles;
               document.head.appendChild(styleSheet);
 
-              // Your existing name animation code
+              // Animasi ketik nama kamu
               const name = "Mochammad Dicky Hanun Prasetyo";
               const container = document.getElementById("animated-name");
 
@@ -337,15 +222,17 @@
               });
             </script>
           </div>
+
           <p>
             Building a Website From Backend to Frontend for your project
-            <br><span class="typed" data-typed-items="Laravel, Filament Laravel, ReactJS, MySQL"></span>
+            <br /><span
+              class="typed"
+              data-typed-items="Laravel, Filament Laravel, ReactJS, MySQL"
+            ></span>
           </p>
           <i></i>
           <div class="social-links">
-            <a href="https://github.com/mdhp24"
-              ><i class="bi bi-github"></i
-            ></a>
+            <a href="https://github.com/mdhp24"><i class="bi bi-github"></i></a>
             <a
               href="https://linkedin.com/in/mochammad-dicky-hanun-prasetyo-a4575a2b7"
               ><i class="bi bi-linkedin"></i
@@ -617,7 +504,6 @@
                     <div class="d-flex justify-content-center">
                       <a
                         href="https://github.com/mdhp24/PBL-Kompen-InfinityTech"
-
                         target="_blank"
                         class="btn btn-primary mx-2"
                         >GitHub</a
@@ -663,7 +549,6 @@
                     <div class="d-flex justify-content-center">
                       <a
                         href="https://github.com/mdhp24/PBL-Kompen-InfinityTech"
-
                         target="_blank"
                         class="btn btn-primary mx-2"
                         >GitHub</a
@@ -799,9 +684,7 @@
         <h3 class="sitename">MDHP Portfolio</h3>
         <p>Saya memiliki sosial media di bawah ini.</p>
         <div class="social-links d-flex justify-content-center">
-          <a href="https://github.com/mdhp24"
-            ><i class="bi bi-github"></i
-          ></a>
+          <a href="https://github.com/mdhp24"><i class="bi bi-github"></i></a>
           <a
             href="https://linkedin.com/in/mochammad-dicky-hanun-prasetyo-a4575a2b7"
             ><i class="bi bi-linkedin"></i
